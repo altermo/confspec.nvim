@@ -344,6 +344,17 @@ function M.data_fns:assert_n_params(conf,nparams,nparams_max)
     return self:error_bad_fn_n_params(conf,nparams,nparams_max)
 end
 
+---@generic T
+---@param list (T|any)[]
+---@param value T
+---@return boolean
+function in_list(list,value)
+    for _,v in ipairs(list) do
+        if v==value then return true end
+    end
+    return false
+end
+
 ---@param conf any
 ---@param other_filetypes string[]
 ---@return boolean
@@ -666,7 +677,7 @@ local meta_spec_default={
         keys[idx]=true
 
         if not spec[idx] then
-          local _=data:error_dont_set(idx,spec)
+          local _=data:error_dont_set(idx,vim.tbl_keys(spec))
         else
           data:index_run_spec(spec[idx],idx,conf)
         end
