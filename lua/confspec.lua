@@ -901,6 +901,8 @@ end
 ---|{["_"]:confspec.spec,[1]:any,[2]:'list'?}
 ---|any
 
+---@alias confspec.mspecT<T> {[P in keyof T]: confspec.mspec;}
+
 ---@param mspec confspec.mspec
 ---@param id any?
 ---@return any
