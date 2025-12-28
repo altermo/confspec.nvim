@@ -1,3 +1,5 @@
+--- You can find the upstream project here: https://github.com/altermo/confspec.nvim
+
 local M={}
 
 ---@alias confspec.spec
