@@ -972,10 +972,9 @@ end
 ---@param id any?
 ---@return T
 function M.merge_and_validate(mspec, conf, plugin_name, id)
-  id=id or '_'
-  local default=M.mspec_to_default(mspec)
-  local merge_spec=M.mspec_to_merge_spec(mspec)
-  local spec=M.mspec_to_spec(mspec)
+  local default=M.mspec_to_default(mspec,id)
+  local merge_spec=M.mspec_to_merge_spec(mspec,id)
+  local spec=M.mspec_to_spec(mspec,id)
 
   conf=M.merge(merge_spec, conf, default)
   M.validate(spec,conf,M.opts_generate(conf,plugin_name))
